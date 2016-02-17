@@ -1,0 +1,23 @@
+{
+  "name": "eslint-config-particle",
+  "version": "1.0.1",
+  "description": "eslint config rules for Particle projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spark/eslint-config-particle.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Bryce Kahle <bryce@particle.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spark/eslint-config-particle/issues"
+  },
+  "homepage": "https://github.com/spark/eslint-config-particle#readme"
+}
