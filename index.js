@@ -37,6 +37,7 @@ module.exports = {
 		"no-dupe-class-members": 2,
 		"no-const-assign": 2,
 		"no-class-assign": 2,
-		"constructor-super": 2
+		"constructor-super": 2,
+		"indent": [2, "tab"],
 	}
 };
