@@ -2,7 +2,7 @@ module.exports = {
 	"rules": {
 		"block-scoped-var": 2,
 		"brace-style": [2, "1tbs"],
-		"camelcase": 0,
+		"camelcase": [2, { "properties": "never" }],
 		"curly": 2,
 		"eol-last": 2,
 		"eqeqeq": [2, "smart"],
@@ -38,6 +38,8 @@ module.exports = {
 		"no-const-assign": 2,
 		"no-class-assign": 2,
 		"constructor-super": 2,
-		"indent": [2, "tab"],
+		"indent": [2, "tab", {
+			"SwitchCase": 1
+		}],
 	}
 };
