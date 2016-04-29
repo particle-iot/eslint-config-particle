@@ -13,7 +13,7 @@ module.exports = {
 		"no-mixed-spaces-and-tabs": 2,
 		"no-trailing-spaces": 2,
 		"no-use-before-define": [2, "nofunc"],
-		"no-unused-vars": 1,
+		"no-unused-vars": [1, { "vars": "all", "args": "none"}],
 		"no-extra-parens": [2, "functions"],
 		"no-underscore-dangle": 0,
 		"no-nested-ternary": 2,
