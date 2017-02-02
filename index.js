@@ -13,7 +13,7 @@ module.exports = {
 		"func-style": ["error", "declaration", { "allowArrowFunctions": true }],
 		"handle-callback-err": "error",
 		"indent": ["error", "tab", {
-			"SwitchCase": "warn",
+			"SwitchCase": 1,
 			"ObjectExpression": "first",
 		  "MemberExpression": 1
 		}],
