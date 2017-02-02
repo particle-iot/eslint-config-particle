@@ -1,45 +1,56 @@
 module.exports = {
+	"extends": "eslint:recommended",
 	"rules": {
-		"block-scoped-var": 2,
-		"brace-style": [2, "1tbs"],
-		"camelcase": [2, { "properties": "never" }],
-		"curly": 2,
-		"eol-last": 2,
-		"eqeqeq": [2, "smart"],
-		"max-depth": [1, 3],
-		"max-statements": [1, 30],
-		"new-cap": 1,
-		"no-extend-native": 2,
-		"no-mixed-spaces-and-tabs": 2,
-		"no-trailing-spaces": 2,
-		"no-use-before-define": [2, "nofunc"],
-		"no-unused-vars": [1, { "vars": "all", "args": "none"}],
-		"no-extra-parens": [2, "functions"],
-		"no-underscore-dangle": 0,
-		"no-nested-ternary": 2,
-		"no-undef": 2,
-		"quotes": [2, "single", "avoid-escape"],
-		"semi": [2, "always"],
-		"keyword-spacing": 2,
-		"space-unary-ops": [2, {"words": true, "nonwords": false}],
-		"strict": [2, "global"],
-		"valid-jsdoc": [1, {
-			"requireReturn": false,
-			"requireParamDescription": false
+		"array-bracket-spacing": ["error", "never"],
+		"block-scoped-var": "error",
+		"brace-style": ["error", "1tbs"],
+		"camelcase": ["error", { "properties": "never" }],
+		"constructor-super": "error",
+		"curly": "error",
+		"eol-last": "error",
+		"eqeqeq": ["error", "smart"],
+		"func-names": "error",
+		"func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+		"handle-callback-err": "error",
+		"indent": ["error", "tab", {
+			"SwitchCase": "warn",
+			"ObjectExpression": "first",
+		  "MemberExpression": 1
 		}],
-		"func-names": 2,
-		"no-multi-spaces": [1, {
+		"keyword-spacing": ["error", {
+		  "before": true,
+		  "after": true,
+		}],
+		"max-depth": ["warn", 3],
+		"max-statements": ["warn", 30],
+		"new-cap": "warn",
+		"no-class-assign": "error",
+		"no-cond-assign": ["error", "except-parens"],
+		"no-const-assign": "error",
+		"no-dupe-class-members": "error",
+		"no-extend-native": "error",
+		"no-extra-parens": ["error", "functions"],
+		"no-mixed-spaces-and-tabs": "error",
+		"no-multi-spaces": ["warn", {
 			"exceptions": {
 				"VariableDeclarator": true
 			}
 		}],
-		"no-this-before-super": 2,
-		"no-dupe-class-members": 2,
-		"no-const-assign": 2,
-		"no-class-assign": 2,
-		"constructor-super": 2,
-		"indent": [2, "tab", {
-			"SwitchCase": 1
-		}],
+		"no-nested-ternary": "error",
+		"no-this-before-super": "error",
+		"no-trailing-spaces": "error",
+		"no-undef": "error",
+		"no-underscore-dangle": "off",
+		"no-unused-vars": ["warn", { "vars": "all", "args": "none"}],
+		"no-use-before-define": ["error", "nofunc"],
+		"object-curly-spacing": ["error", "always"],
+		"quotes": ["error", "single", "avoid-escape"],
+		"semi": ["error", "always"],
+		"space-unary-ops": ["error", {"words": true, "nonwords": false}],
+		"strict": ["error", "global"],
+		"valid-jsdoc": ["warn", {
+			"requireReturn": false,
+			"requireParamDescription": false
+		}]
 	}
 };
