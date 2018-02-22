@@ -41,7 +41,6 @@ module.exports = {
 		"no-trailing-spaces": "error",
 		"no-undef": "error",
 		"no-underscore-dangle": "off",
-		"no-unused-vars": ["warn", { "vars": "all", "args": "none"}],
 		"no-use-before-define": ["error", "nofunc"],
 		"object-curly-spacing": ["error", "always"],
 		"quotes": ["error", "single", "avoid-escape"],
