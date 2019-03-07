@@ -5,6 +5,18 @@ eslint config rules for Particle Javascript projects
 
 1. Install dependencies
 `npm install --save-dev eslint eslint-config-particle`
+1. Tell eslint to use the Particle config by creating `.eslintrc`
+```
+{
+  "extends": "particle",
+  "root": true,
+  "env": {
+  	"es6": true,
+    "mocha": true,
+    "node": true
+  }
+}
+```
 1. Add lint scripts to `package.json`
 ```
   "scripts": {
