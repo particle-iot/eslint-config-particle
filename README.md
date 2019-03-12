@@ -11,7 +11,7 @@ eslint config rules for Particle Javascript projects
   "extends": "particle",
   "root": true,
   "env": {
-  	"es6": true,
+    "es6": true,
     "mocha": true,
     "node": true
   }
