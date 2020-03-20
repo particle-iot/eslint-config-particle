@@ -37,6 +37,7 @@ module.exports = {
 			}
 		}],
 		"no-nested-ternary": "error",
+		"no-prototype-builtins": "off",
 		"no-this-before-super": "error",
 		"no-trailing-spaces": "error",
 		"no-undef": "error",
