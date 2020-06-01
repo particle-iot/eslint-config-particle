@@ -9,7 +9,7 @@ module.exports = {
 		"curly": "error",
 		"eol-last": "error",
 		"eqeqeq": ["error", "smart"],
-		"func-names": "error",
+		"func-names": ["error", "as-needed"],
 		"func-style": ["error", "declaration", { "allowArrowFunctions": true }],
 		"handle-callback-err": "error",
 		"indent": ["error", "tab", {
