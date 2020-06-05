@@ -43,6 +43,7 @@ module.exports = {
 		"no-undef": "error",
 		"no-underscore-dangle": "off",
 		"no-use-before-define": ["error", { "functions": false, "classes": false }],
+		"no-var": "error",
 		"object-curly-spacing": ["error", "always"],
 		"quotes": ["error", "single", "avoid-escape"],
 		"semi": ["error", "always"],
@@ -52,5 +53,13 @@ module.exports = {
 			"requireReturn": false,
 			"requireParamDescription": false
 		}]
-	}
+	},
+	overrides: [
+		{
+			files: ["*.spec.js", "*.test.js", "*.e2e.js", "*.integration.js"],
+			rules: {
+				"func-names": "off"
+			}
+		}
+	]
 };
