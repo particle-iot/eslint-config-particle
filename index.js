@@ -54,7 +54,7 @@ module.exports = {
 		'no-var': 'error',
 		'object-curly-spacing': ['error', 'always'],
 		'prefer-const': 'error',
-		'quotes': ['error', 'single', 'avoid-escape'],
+		'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
 		'semi': ['error', 'always'],
 		'space-unary-ops': ['error', {'words': true, 'nonwords': false}],
 		'strict': ['error', 'global'],
