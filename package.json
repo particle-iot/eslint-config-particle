@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-particle",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "eslint config rules for Particle projects",
   "main": "index.js",
   "scripts": {
