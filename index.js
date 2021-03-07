@@ -23,11 +23,11 @@ module.exports = {
 		'indent': ['error', 'tab', {
 			'SwitchCase': 1,
 			'ObjectExpression': 'first',
-		  'MemberExpression': 1
+			'MemberExpression': 1
 		}],
 		'keyword-spacing': ['error', {
-		  'before': true,
-		  'after': true,
+			'before': true,
+			'after': true,
 		}],
 		'max-depth': ['warn', 3],
 		'max-statements': ['warn', 30],
