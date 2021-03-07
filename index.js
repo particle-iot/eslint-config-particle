@@ -34,6 +34,14 @@ module.exports = {
 			after: true,
 		}],
 		'max-depth': ['warn', 3],
+		'max-len': ['error', {
+			code: 120,
+			ignoreComments: true,
+			ignoreTrailingComments: true,
+			ignoreUrls: true,
+			ignoreStrings: true,
+			ignoreTemplateLiterals: true
+		}],
 		'max-statements': ['warn', 30],
 		'new-cap': 'warn',
 		'no-class-assign': 'error',
