@@ -77,11 +77,6 @@ module.exports = {
 			allowTemplateLiterals: true
 		}],
 		'semi': ['error', 'always'],
-		'space-before-blocks': ['error', {
-			functions: 'never',
-			keywords: 'never',
-			classes: 'always'
-		}],
 		'space-in-parens': ['error', 'never'],
 		'space-infix-ops': 'error',
 		'space-unary-ops': ['error', {
