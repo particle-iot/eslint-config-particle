@@ -12,24 +12,36 @@ module.exports = {
 		'array-bracket-spacing': ['error', 'never'],
 		'block-scoped-var': 'error',
 		'brace-style': ['error', '1tbs'],
-		'camelcase': ['error', { 'properties': 'never' }],
+		'camelcase': ['error', {
+			properties: 'never'
+		}],
 		'constructor-super': 'error',
 		'curly': 'error',
 		'eol-last': 'error',
 		'eqeqeq': ['error', 'smart'],
 		'func-names': ['error', 'as-needed'],
-		'func-style': ['error', 'declaration', { 'allowArrowFunctions': true }],
+		'func-style': ['error', 'declaration', {
+			allowArrowFunctions: true
+		}],
 		'handle-callback-err': 'error',
 		'indent': ['error', 'tab', {
-			'SwitchCase': 1,
-			'ObjectExpression': 'first',
-		  'MemberExpression': 1
+			SwitchCase: 1,
+			ObjectExpression: 'first',
+			MemberExpression: 1
 		}],
 		'keyword-spacing': ['error', {
-		  'before': true,
-		  'after': true,
+			before: true,
+			after: true,
 		}],
 		'max-depth': ['warn', 3],
+		'max-len': ['error', {
+			code: 120,
+			ignoreComments: true,
+			ignoreTrailingComments: true,
+			ignoreUrls: true,
+			ignoreStrings: true,
+			ignoreTemplateLiterals: true
+		}],
 		'max-statements': ['warn', 30],
 		'new-cap': 'warn',
 		'no-class-assign': 'error',
@@ -40,8 +52,8 @@ module.exports = {
 		'no-extra-parens': ['error', 'functions'],
 		'no-mixed-spaces-and-tabs': 'error',
 		'no-multi-spaces': ['warn', {
-			'exceptions': {
-				'VariableDeclarator': true
+			exceptions: {
+				VariableDeclarator: true
 			}
 		}],
 		'no-nested-ternary': 'error',
@@ -50,17 +62,26 @@ module.exports = {
 		'no-trailing-spaces': 'error',
 		'no-undef': 'error',
 		'no-underscore-dangle': 'off',
-		'no-use-before-define': ['error', { 'functions': false, 'classes': false }],
+		'no-use-before-define': ['error', {
+			functions: false,
+			classes: false
+		}],
 		'no-var': 'error',
 		'object-curly-spacing': ['error', 'always'],
 		'prefer-const': 'error',
-		'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
+		'quotes': ['error', 'single', {
+			avoidEscape: true,
+			allowTemplateLiterals: true
+		}],
 		'semi': ['error', 'always'],
-		'space-unary-ops': ['error', {'words': true, 'nonwords': false}],
+		'space-unary-ops': ['error', {
+			words: true,
+			nonwords: false
+		}],
 		'strict': ['error', 'global'],
 		'valid-jsdoc': ['warn', {
-			'requireReturn': false,
-			'requireParamDescription': false
+			requireReturn: false,
+			requireParamDescription: false
 		}]
 	},
 	overrides: [
