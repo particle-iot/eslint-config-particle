@@ -10,7 +10,9 @@ module.exports = {
 	},
 	rules: {
 		'array-bracket-spacing': ['error', 'never'],
+		'arrow-spacing': 'error',
 		'block-scoped-var': 'error',
+		'block-spacing': 'error',
 		'brace-style': ['error', '1tbs'],
 		'camelcase': ['error', {
 			properties: 'never'
@@ -51,9 +53,9 @@ module.exports = {
 		'no-extend-native': 'error',
 		'no-extra-parens': ['error', 'functions'],
 		'no-mixed-spaces-and-tabs': 'error',
-		'no-multi-spaces': ['warn', {
+		'no-multi-spaces': ['error', {
 			exceptions: {
-				VariableDeclarator: true
+				VariableDeclarator: true,
 			}
 		}],
 		'no-nested-ternary': 'error',
@@ -66,6 +68,7 @@ module.exports = {
 			functions: false,
 			classes: false
 		}],
+		'no-whitespace-before-property': 'error',
 		'no-var': 'error',
 		'object-curly-spacing': ['error', 'always'],
 		'prefer-const': 'error',
@@ -74,6 +77,8 @@ module.exports = {
 			allowTemplateLiterals: true
 		}],
 		'semi': ['error', 'always'],
+		'space-in-parens': ['error', 'never'],
+		'space-infix-ops': 'error',
 		'space-unary-ops': ['error', {
 			words: true,
 			nonwords: false
