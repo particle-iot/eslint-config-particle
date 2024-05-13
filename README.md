@@ -5,12 +5,22 @@ eslint config rules for Particle Javascript projects
 
 1. Install dependencies
 `npm install --save-dev eslint eslint-config-particle`
-1. Tell eslint to use the Particle config by creating `.eslintrc.js`
+1. Tell eslint to use the Particle config by creating `eslint.config.mjs`
 ```
-module.exports = {
-  extends: ['eslint-config-particle'],
-  root: true
-}
+import eslintParticle from 'eslint-config-particle';
+
+// See the ESLint configuration docs for more information:
+// https://eslint.org/docs/latest/use/configure/configuration-files
+
+export default [
+	// No other keys with ignore makes it "global ignore"
+	// {
+	// 	ignores: ['**/device-os-protobuf/**'],
+	// },
+	...eslintParticle.recommended,
+	...eslintParticle.jsdoc,
+	eslintParticle.mocha,
+];
 ```
 1. Add lint scripts to `package.json`
 ```

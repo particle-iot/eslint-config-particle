@@ -2,7 +2,7 @@
   "name": "eslint-config-particle",
   "version": "2.5.0",
   "description": "eslint config rules for Particle projects",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,10 +14,17 @@
     "eslint",
     "eslintconfig"
   ],
-  "author": "Bryce Kahle <bryce@particle.io>",
+  "author": "Wraithan McCarroll <wraithan@particle.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spark/eslint-config-particle/issues"
   },
-  "homepage": "https://github.com/spark/eslint-config-particle#readme"
+  "homepage": "https://github.com/spark/eslint-config-particle#readme",
+  "dependencies": {
+    "@eslint/js": "^9.2.0",
+    "@stylistic/eslint-plugin-js": "^2.1.0",
+    "eslint-plugin-jsdoc": "^48.2.4",
+    "eslint-plugin-mocha": "^10.4.3",
+    "globals": "^15.2.0"
+  }
 }
