@@ -12,6 +12,7 @@
     "eslint",
     "eslintconfig"
   ],
+  "files": ["index.mjs"],
   "author": "Bryce Kahle <bryce@particle.io>",
   "license": "MIT",
   "bugs": {
