@@ -35,8 +35,8 @@ function testRules(testGlobals) {
 
 /**
  * @typedef {object} TsOptions
- * @property {string} tsconfig
- * @property {string[]} [ignores]
+ * @property {string} tsconfig - the path to the tsconfig file used for type checking rules
+ * @property {string[]} [ignores] - a list of files that the tsconfig ignores and should be excluded. You will get a warning if you are missing files here
  */
 
 /**
@@ -103,7 +103,7 @@ function tsConfigs(rootDir, options) {
  * @param {boolean} [opts.jsdocs] - Whether to enable jsdocs rules. They are VERY strict, we also export jsdoc so you can try other configs if you want
  * @param {TsOptions} [opts.typescript] - Options for enabling typescript linting
  * @param {import('eslint').Linter.Rules} [opts.overrides] - Rule overrides for your specific project
- * @param {string[]} opts.globalIgnores - A list of files to ignore all lints for. eg- build scripts, changelog scripts, etc
+ * @param {string[]} [opts.globalIgnores] - A list of files to ignore all lints for. eg- build scripts, changelog scripts, etc
  *
  * @returns {import('eslint').Linter.Config[]}
  */
