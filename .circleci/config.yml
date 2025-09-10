@@ -27,8 +27,6 @@ workflows:
   publish:
     jobs:
       - publish-npm:
-          requires:
-            - run-tests
           context:
             - particle-ci-private
           # publish for tags only
