@@ -2,14 +2,12 @@
   "name": "eslint-config-particle",
   "version": "2.5.0",
   "description": "eslint config rules for Particle projects",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "index.mjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spark/eslint-config-particle.git"
+    "url": "git+https://github.com/particle-iot/eslint-config-particle.git"
   },
+  "type": "module",
   "keywords": [
     "eslint",
     "eslintconfig"
@@ -17,7 +15,15 @@
   "author": "Bryce Kahle <bryce@particle.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spark/eslint-config-particle/issues"
+    "url": "https://github.com/particle-iot/eslint-config-particle/issues"
   },
-  "homepage": "https://github.com/spark/eslint-config-particle#readme"
+  "homepage": "https://github.com/particle-iot/eslint-config-particle#readme",
+  "dependencies": {
+    "@eslint/js": "^9.35.0",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
+    "eslint-plugin-jsdoc": "^55.2.0",
+    "globals": "^16.4.0",
+    "typescript-eslint": "^8.43.0"
+  }
 }

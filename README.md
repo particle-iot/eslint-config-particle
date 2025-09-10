@@ -2,25 +2,61 @@
 eslint config rules for Particle Javascript projects
 
 ## Enforcing style rules in a Particle project
+### Install dependencies
+`npm install -D eslint eslint-config-particle`
+### Create a config
+#### JS Example
+```javascript
+// eslint.config.mjs
+import { particle } from './particle-eslint.mjs';
 
-1. Install dependencies
-`npm install --save-dev eslint eslint-config-particle`
-1. Tell eslint to use the Particle config by creating `.eslintrc.js`
+export default particle({
+	rootDir: import.meta.dirname,
+	testGlobals: 'mocha'
+});
 ```
-module.exports = {
-  extends: ['eslint-config-particle'],
-  root: true
-}
+
+#### TS Example
+```javascript
+// eslint.config.mjs
+import { particle } from './particle-eslint.mjs';
+
+export default particle({
+	rootDir: import.meta.dirname,
+	testGlobals: 'vitest',
+	globalIgnores: ['./update-changelog.js', './esbuild.js', '**/scripts/**'],
+	typescript: {
+		tsconfig: './tsconfig-check.json'
+	},
+	overrides: {
+		// When we switch to a real logger, we can turn this off
+		'no-console': 'off',
+		// Dbus APIs are usually cap functions
+		'new-cap': 'off'
+	}
+});
 ```
-1. Add lint scripts to `package.json`
+
+#### Customizing beyond particle opts
+```javascript
+// eslint.config.mjs
+import { particle } from './particle-eslint.mjs';
+
+export default [
+    ...particle({
+	    rootDir: import.meta.dirname,
+	    // more particle opts
+    }),
+	{
+		// my custom rules here that the particle fn doesn't let me customize 
+    }
+];
+```
+
+### Add lint scripts to `package.json` and update CI
 ```
   "scripts": {
-    "lint": "eslint . --quiet -f unix",
-    "lint:fix": "eslint . --quiet --fix -f unix",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
   }
-```
-1. Run lint as part of the CI pipeline, for example by adding to `.travis.yml`
-```
-script:
-- npm run lint && npm test
 ```
