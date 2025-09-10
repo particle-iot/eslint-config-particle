@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-particle",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0-rc.1",
   "description": "eslint config rules for Particle projects",
   "main": "index.mjs",
   "repository": {
