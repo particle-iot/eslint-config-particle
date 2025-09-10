@@ -8,7 +8,7 @@ eslint config rules for Particle Javascript projects
 #### JS Example
 ```javascript
 // eslint.config.mjs
-import { particle } from './particle-eslint.mjs';
+import { particle } from 'eslint-config-particle';
 
 export default particle({
 	rootDir: import.meta.dirname,
@@ -19,7 +19,7 @@ export default particle({
 #### TS Example
 ```javascript
 // eslint.config.mjs
-import { particle } from './particle-eslint.mjs';
+import { particle } from 'eslint-config-particle';
 
 export default particle({
 	rootDir: import.meta.dirname,
@@ -40,7 +40,7 @@ export default particle({
 #### Customizing beyond particle opts
 ```javascript
 // eslint.config.mjs
-import { particle } from './particle-eslint.mjs';
+import { particle } from 'eslint-config-particle';
 
 export default [
     ...particle({
