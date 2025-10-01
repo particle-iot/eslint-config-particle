@@ -182,8 +182,7 @@ export function particle(opts) {
 					argsIgnorePattern: '^_',
 					caughtErrorsIgnorePattern: '^_'
 				}],
-				'no-console': 'error',
-				...opts.overrides
+				'no-console': 'error'
 			}
 		},
 		{ // Always allow module syntax for the eslint config file
@@ -209,6 +208,12 @@ export function particle(opts) {
 
 	if (opts.jsdocs) {
 		configs.push(jsdoc.configs['flat/recommended']);
+	}
+
+	if (opts.overrides) {
+		configs.push({
+			rules: opts.overrides
+		});
 	}
 
 	return configs;
