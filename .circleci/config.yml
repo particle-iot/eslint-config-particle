@@ -43,7 +43,7 @@ workflows:
   version: 2
   check-and-publish:
     jobs:
-      - run-tests:
+      - run-checks:
           context:
             - particle-ci-private
           # run tests for all branches and tags
