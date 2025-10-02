@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-particle",
-  "version": "3.0.1",
+  "version": "3.0.2-rc.0",
   "description": "eslint config rules for Particle projects",
   "main": "index.mjs",
   "repository": {
@@ -21,15 +21,26 @@
     "url": "https://github.com/particle-iot/eslint-config-particle/issues"
   },
   "homepage": "https://github.com/particle-iot/eslint-config-particle#readme",
+  "scripts": {
+    "check": "tsc"
+  },
   "dependencies": {
-    "@eslint/js": "^9.35.0",
-    "@typescript-eslint/eslint-plugin": "^8.43.0",
-    "@typescript-eslint/parser": "^8.43.0",
-    "eslint-plugin-jsdoc": "^55.2.0",
+    "@eslint/compat": "^1.4.0",
+    "@eslint/js": "^9.36.0",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint-plugin-jsdoc": "^60.7.1",
     "globals": "^16.4.0",
-    "typescript-eslint": "^8.43.0"
+    "typescript-eslint": "^8.45.0"
   },
   "peerDependencies": {
-    "eslint": "^9.35.0"
+    "eslint": "^9.36.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.8",
+    "typescript": "^5.9.3"
   }
 }

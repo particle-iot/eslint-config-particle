@@ -1,15 +1,17 @@
+import { join } from 'node:path';
 import js from '@eslint/js';
 import globals from 'globals';
 import jsdoc from 'eslint-plugin-jsdoc';
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tseslint from 'typescript-eslint';
+import { includeIgnoreFile } from '@eslint/compat';
 
 /** jsdoc.configs['flat/recommended'] is VERY strict */
 export { globals, jsdoc };
 
 /**
- * @param {string} testGlobals
+ * @param {keyof globals} testGlobals
  * @returns {import('eslint').Linter.Config}
  */
 function testRules(testGlobals) {
@@ -17,6 +19,7 @@ function testRules(testGlobals) {
 	const extensions = '{mjs,cjs,js,ts}';
 
 	return {
+		name: 'Test rules/globals',
 		files: [
 			...testFilenames.map((name) => `**/*.${name}.${extensions}`),
 			`**/test/**/*.${extensions}`,
@@ -54,9 +57,11 @@ function tsConfigs(rootDir, options) {
 	return [
 		...tseslint.configs.recommended,
 		{
+			name: 'TS ignores built files and config.schema.js',
 			ignores: ['**/dist/**', '**/build/**', './config.schema.js']
 		},
 		{
+			name: 'TS parser and custom rules',
 			ignores: options.ignores ?? [],
 			files: ['**/*.ts'],
 			languageOptions: {
@@ -68,6 +73,7 @@ function tsConfigs(rootDir, options) {
 				}
 			},
 			plugins: {
+				/** @type {any} - For some reason, the tsPlugin is not a valid "Plugin" */
 				'@typescript-eslint': tsPlugin,
 			},
 			rules: {
@@ -102,19 +108,28 @@ function tsConfigs(rootDir, options) {
  * @param {'vitest' | 'mocha' | 'jest'} opts.testGlobals - The name of the test framework we use that we want globals for
  * @param {boolean} [opts.jsdocs] - Whether to enable jsdocs rules. They are VERY strict, we also export jsdoc so you can try other configs if you want
  * @param {TsOptions} [opts.typescript] - Options for enabling typescript linting
- * @param {import('eslint').Linter.Rules} [opts.overrides] - Rule overrides for your specific project
+ * @param {import('eslint').Linter.RulesRecord} [opts.overrides] - Rule overrides for your specific project
  * @param {string[]} [opts.globalIgnores] - A list of files to ignore all lints for. eg- build scripts, changelog scripts, etc
+ * @param {'commonjs' | 'module'} [opts.sourceType] - Allows you to override default sourceType for codebases that don't follow convention
  *
  * @returns {import('eslint').Linter.Config[]}
  */
 export function particle(opts) {
 	/** @type {import('eslint').Linter.Config[]} */
 	const configs = [
-		{ ignores: opts.globalIgnores ?? [] },
+		includeIgnoreFile(join(opts.rootDir, '.gitignore')),
+	];
+
+	if (opts.globalIgnores) {
+		configs.push({ name: 'Custom globalIgnores', ignores: opts.globalIgnores });
+	}
+
+	configs.push(
 		{
+			name: 'Particle primary rules and source type configuration',
 			languageOptions: {
-				// TS gets parsed as ESM, but transpiled to CJS by TSC
-				sourceType: opts.typescript ? 'module' : 'commonjs',
+				// Use override sourceType if provided, otherwise, TS gets parsed as ESM, JS gets CJS
+				sourceType: opts.sourceType ? opts.sourceType : opts.typescript ? 'module' : 'commonjs',
 				ecmaVersion: 2024,
 				globals: {
 					...globals.node
@@ -185,20 +200,22 @@ export function particle(opts) {
 				'no-console': 'error'
 			}
 		},
-		{ // Always allow module syntax for the eslint config file
+		{
+			name: 'Override for eslint.config.mjs to allow sourceType module',
 			files: ['./eslint.config.mjs'],
 			languageOptions: {
 				sourceType: 'module',
 			}
 		},
-		{ // Turn off console errors for scripts folder
+		{
+			name: 'Turn off console errors for scripts folder',
 			files: ['**/scripts/**'],
 			rules: {
 				'no-console': 'off'
 			}
 		},
 		testRules(opts.testGlobals)
-	];
+	);
 
 	if (opts.typescript) {
 		configs.push(...tsConfigs(opts.rootDir, opts.typescript));
@@ -212,6 +229,7 @@ export function particle(opts) {
 
 	if (opts.overrides) {
 		configs.push({
+			name: 'Custom rule overrides',
 			rules: opts.overrides
 		});
 	}
