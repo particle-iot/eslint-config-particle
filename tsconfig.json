@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "NodeNext",
+    "strict": true,
+    "skipLibCheck": true,
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["index.mjs"]
+}
