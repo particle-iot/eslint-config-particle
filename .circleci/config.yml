@@ -2,9 +2,6 @@ version: 2.1
 
 jobs:
   run-checks:
-    parameters:
-      node-version:
-        type: string
     docker:
       - image: cimg/node:22.18 # Primary execution image
         auth:
