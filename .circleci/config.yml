@@ -1,9 +1,26 @@
 version: 2.1
 
 jobs:
+  run-checks:
+    parameters:
+      node-version:
+        type: string
+    docker:
+      - image: cimg/node:22.18 # Primary execution image
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run:
+          name: NPM install
+          command: npm ci
+      - run:
+          name: Run Checks
+          command: npm run check
   publish-npm:
     docker:
-      - image: cimg/node:22.18.0 # Primary execution image
+      - image: cimg/node:22.18 # Primary execution image
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
@@ -24,8 +41,17 @@ jobs:
 
 workflows:
   version: 2
-  publish:
+  check-and-publish:
     jobs:
+      - run-tests:
+          context:
+            - particle-ci-private
+          # run tests for all branches and tags
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: /.*/
       - publish-npm:
           context:
             - particle-ci-private
