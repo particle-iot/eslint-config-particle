@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  run-checks:
+  run-tests:
     docker:
       - image: cimg/node:22.18 # Primary execution image
         auth:
@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Run Checks
           command: npm run check
+      - run:
+          name: Run Tests
+          command: npm run test
   publish-npm:
     docker:
       - image: cimg/node:22.18 # Primary execution image
@@ -38,9 +41,9 @@ jobs:
 
 workflows:
   version: 2
-  check-and-publish:
+  test-and-publish:
     jobs:
-      - run-checks:
+      - run-tests:
           context:
             - particle-ci-private
           # run tests for all branches and tags
