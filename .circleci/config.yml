@@ -54,7 +54,7 @@ workflows:
               only: /.*/
       - publish-npm:
           requires:
-            - run-checks
+            - run-tests
           context:
             - particle-ci-private
           # publish for tags only
