@@ -179,7 +179,7 @@ export function particle(opts) {
 				'no-whitespace-before-property': 'error',
 				'no-var': 'error',
 				'object-curly-spacing': ['error', 'always'],
-				'prefer-const': 'error',
+				'prefer-const': ['error', { destructuring: 'all' }],
 				'quotes': ['error', 'single', {
 					avoidEscape: true,
 					allowTemplateLiterals: true

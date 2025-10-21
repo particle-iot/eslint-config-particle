@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/particle-iot/eslint-config-particle#readme",
   "scripts": {
-    "check": "tsc"
+    "check": "tsc",
+    "test": "cd test && eslint"
   },
   "dependencies": {
     "@eslint/compat": "^1.4.0",

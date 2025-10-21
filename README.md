@@ -1,6 +1,11 @@
 # eslint-config-particle
 eslint config rules for Particle Javascript projects
 
+## Adding/updating rules
+You can do so in the index.mjs file. There are separate functions for test rules, TS rules, js rules, etc.
+
+If you want to validate your rule is working as expected, see the [test repo's README](./test/README.md)
+
 ## Enforcing style rules in a Particle project
 ### Install dependencies
 `npm install -D eslint eslint-config-particle`
