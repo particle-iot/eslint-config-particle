@@ -30,3 +30,6 @@ function spacing() {
 		spacing();
 	}
 }
+
+// eslint-disable-next-line arrow-parens
+const a = b => {};

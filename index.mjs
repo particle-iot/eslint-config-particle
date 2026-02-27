@@ -136,6 +136,7 @@ export function particle(opts) {
 				}
 			},
 			rules: {
+				'arrow-parens': ['error', 'always'],
 				'array-bracket-spacing': ['error', 'never'],
 				'arrow-spacing': 'error',
 				'block-spacing': 'error',
