@@ -138,8 +138,10 @@ export function particle(opts) {
 			rules: {
 				'array-bracket-spacing': ['error', 'never'],
 				'arrow-spacing': 'error',
-				'block-scoped-var': 'error',
 				'block-spacing': 'error',
+				'keyword-spacing': ['error', { before: true, after: true }],
+				'object-curly-spacing': ['error', 'always'],
+				'block-scoped-var': 'error',
 				'brace-style': ['error', '1tbs'],
 				'constructor-super': 'error',
 				'curly': 'error',
@@ -152,14 +154,8 @@ export function particle(opts) {
 				'handle-callback-err': 'error',
 				'indent': ['error', 'tab', {
 					SwitchCase: 1,
-					ObjectExpression: 'first',
-					MemberExpression: 1
+					ObjectExpression: 'first'
 				}],
-				'keyword-spacing': ['error', {
-					before: true,
-					after: true,
-				}],
-				'new-cap': 'warn',
 				'no-class-assign': 'error',
 				'no-cond-assign': ['error', 'except-parens'],
 				'no-const-assign': 'error',
@@ -173,12 +169,11 @@ export function particle(opts) {
 				'no-nested-ternary': 'error',
 				'no-prototype-builtins': 'off',
 				'no-this-before-super': 'error',
-				'no-trailing-spaces': 'error',
+				'no-trailing-spaces': ['error', { skipBlankLines: true }],
 				'no-undef': 'error',
 				'no-underscore-dangle': 'off',
 				'no-whitespace-before-property': 'error',
 				'no-var': 'error',
-				'object-curly-spacing': ['error', 'always'],
 				'prefer-const': ['error', { destructuring: 'all' }],
 				'quotes': ['error', 'single', {
 					avoidEscape: true,
@@ -191,6 +186,7 @@ export function particle(opts) {
 					words: true,
 					nonwords: false
 				}],
+				'space-before-blocks': 'error',
 				'strict': ['error', 'global'],
 				'no-unused-vars': ['error', {
 					varsIgnorePattern: '^_',
@@ -208,8 +204,8 @@ export function particle(opts) {
 			}
 		},
 		{
-			name: 'Turn off console errors for scripts folder',
-			files: ['**/scripts/**'],
+			name: 'Turn off console errors for scripts/examples dirs',
+			files: ['**/scripts/**', '**/examples/**'],
 			rules: {
 				'no-console': 'off'
 			}
