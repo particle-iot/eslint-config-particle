@@ -11,11 +11,11 @@ import { includeIgnoreFile } from '@eslint/compat';
 export { globals, jsdoc };
 
 /**
- * @param {keyof globals} testGlobals
+ * @param {keyof globals} [testGlobals]
  * @returns {import('eslint').Linter.Config}
  */
 function testRules(testGlobals) {
-	const testFilenames = ['spec', 'test', 'e2e', 'integration'];
+	const testFilenames = ['spec', 'test', 'e2e', 'unit', 'integration'];
 	const extensions = '{mjs,cjs,js,ts}';
 
 	return {
@@ -25,9 +25,7 @@ function testRules(testGlobals) {
 			`**/test/**/*.${extensions}`,
 		],
 		languageOptions: {
-			globals: {
-				...globals[testGlobals]
-			}
+			globals: testGlobals ? globals[testGlobals] : {}
 		},
 		rules: {
 			// Important for describe and it
@@ -105,7 +103,7 @@ function tsConfigs(rootDir, options) {
 /**
  * @param {object} opts
  * @param {string} opts.rootDir - import.meta.dirname
- * @param {'vitest' | 'mocha' | 'jest'} opts.testGlobals - The name of the test framework we use that we want globals for
+ * @param {'vitest' | 'mocha' | 'jest'} [opts.testGlobals=undefined] - The name of the test framework we use that we want globals for, if any
  * @param {boolean} [opts.jsdocs] - Whether to enable jsdocs rules. They are VERY strict, we also export jsdoc so you can try other configs if you want
  * @param {TsOptions} [opts.typescript] - Options for enabling typescript linting
  * @param {import('eslint').Linter.RulesRecord} [opts.overrides] - Rule overrides for your specific project
