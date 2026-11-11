@@ -197,10 +197,10 @@ export function particle(opts) {
 			}
 		},
 		{
-			name: 'Override for eslint.config.mjs to allow sourceType module',
-			files: ['./eslint.config.mjs'],
+			name: 'Parse .mjs files as ES modules',
+			files: ['**/*.mjs'],
 			languageOptions: {
-				sourceType: 'module',
+				sourceType: 'module'
 			}
 		},
 		{
