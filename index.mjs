@@ -116,6 +116,7 @@ export function particle(opts) {
 	/** @type {import('eslint').Linter.Config[]} */
 	const configs = [
 		includeIgnoreFile(join(opts.rootDir, '.gitignore')),
+		{ name: 'Particle global ignores', ignores: ['**/.claude/'] },
 	];
 
 	if (opts.globalIgnores) {
